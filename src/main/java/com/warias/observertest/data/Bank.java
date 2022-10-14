@@ -36,7 +36,6 @@ public class Bank implements Subject {
 
     @Override
     public void notifyObservers() {
-        String message =  "1 Dollar is at " + this.mainExchangeRate + "CRC";
         for (Observer observer : observers) {
             observer.update(this.mainExchangeRate.toString());
         }
