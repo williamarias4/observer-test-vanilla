@@ -1,18 +1,14 @@
 package com.warias.observertest.data;
 
 public class Mobile {
+    private String notification;
 
-    private String name;
-
-    public Mobile() {
-
+    public void setNotification(String notification) {
+        this.notification = notification;
+        pushNotification();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return this.name;
+    public void pushNotification() {
+        System.out.println(this.notification);
     }
 }

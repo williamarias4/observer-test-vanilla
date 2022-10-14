@@ -6,13 +6,22 @@ import com.warias.observertest.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Store implements Subject {
+public class Bank implements Subject {
 
-    private Mobile mobile = new Mobile();
+    private Double mainExchangeRate;
     private List<Observer> observers = new ArrayList<>();
 
-    public Store() {
+    public Bank() {
 
+    }
+
+    public void setMainExchangeRate(Double mainExchangeRate) {
+        this.mainExchangeRate = mainExchangeRate;
+        notifyObservers();
+    }
+
+    public Double getMainExchangeRate() {
+        return mainExchangeRate;
     }
 
     @Override
@@ -27,13 +36,10 @@ public class Store implements Subject {
 
     @Override
     public void notifyObservers() {
+        String message =  "1 Dollar is at " + this.mainExchangeRate + "CRC";
         for (Observer observer : observers) {
-            observer.update();
+            observer.update(this.mainExchangeRate.toString());
         }
     }
 
-    @Override
-    public Object getUpdate(Observer observer) {
-        return this.mobile;
-    }
 }

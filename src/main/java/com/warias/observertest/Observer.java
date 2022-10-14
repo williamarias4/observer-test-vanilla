@@ -1,6 +1,6 @@
 package com.warias.observertest;
 
-public interface Observer {
-    void update();
+public interface Observer<T> {
+    void update(Object object);
 
 }
